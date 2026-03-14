@@ -1,0 +1,53 @@
+{
+  "name": "ksv2vs",
+  "displayName": "KSV2VS — KaravaiSV syntax highlighting",
+  "version": "1.0.0",
+  "author": {
+    "name": "Denis Panin",
+    "email": "lozejor12@gmail.com",
+    "url": "https://github.com/BIG-Denis"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BIG-Denis/ksv2vs"
+  },
+  "homepage": "https://github.com/BIG-Denis/ksv2vs",
+  "bugs": {
+    "url": "https://github.com/BIG-Denis/ksv2vs/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Programming Languages"],
+  "extensionDependencies": [
+    "ms-python.python",
+    "mshr-h.veriloghdl"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "karavaisv",
+        "aliases": ["KaravaiSV"],
+        "extensions": [".ksv"]
+      }
+    ],
+
+    "grammars": [
+      {
+        "language": "karavaisv",
+        "scopeName": "source.systemverilog",
+        "path": "./syntaxes/dummy.tmLanguage.json"
+      },
+
+      {
+        "scopeName": "karavaisv.python.injection",
+        "path": "./syntaxes/ksv.tmLanguage.json",
+        "injectTo": ["source.systemverilog"],
+        "embeddedLanguages": {
+          "meta.embedded.block.python": "python"
+        }
+      }
+    ]
+  }
+}

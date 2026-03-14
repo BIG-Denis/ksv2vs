@@ -1,0 +1,54 @@
+{
+  "scopeName": "karavaisv.python.injection",
+  "injectionSelector": "L:source.systemverilog",
+
+  "patterns": [
+    {
+      "name": "meta.embedded.block.python",
+      "contentName": "source.python",
+      "begin": "(<\\$)",
+      "beginCaptures": {
+        "1": { "name": "entity.name.function" }
+      },
+      "end": "(\\$>)",
+      "endCaptures": {
+        "1": { "name": "entity.name.function" }
+      },
+
+      "patterns": [
+        {
+          "name": "keyword.control.flow.python",
+          "match": "\\b(end|endif|endfor|endwhile|endwith|endmatch|endcase)\\b"
+        },
+
+        {
+          "include": "source.python"
+        }
+      ]
+    },
+
+    {
+      "name": "meta.embedded.block.python",
+      "contentName": "source.python",
+      "begin": "(</)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.section.embedded.begin" }
+      },
+      "end": "(/>)",
+      "endCaptures": {
+        "1": { "name": "punctuation.section.embedded.end" }
+      },
+
+      "patterns": [
+        {
+          "name": "keyword.control.flow.python",
+          "match": "\\b(end|endif|endfor|endwhile|endwith|endmatch|endcase)\\b"
+        },
+
+        {
+          "include": "source.python"
+        }
+      ]
+    }
+  ]
+}
